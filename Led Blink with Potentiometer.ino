@@ -7,6 +7,6 @@ void setup() {
 
 void loop() {
   int value = analogRead(Potpin);
-  value = map(deger,0,1023,0,255);
+  value = map(value,0,1023,0,255);
   analogWrite(Led,value);
 }
