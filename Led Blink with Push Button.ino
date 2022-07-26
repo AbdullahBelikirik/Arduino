@@ -7,7 +7,7 @@ void setup() {
 }
 
 void loop() {
-  button_state = digitalRead(Buton);
+  int button_state = digitalRead(Buton);
 
   if(buton_state == 1){
     digitalWrite(Led,HIGH);
