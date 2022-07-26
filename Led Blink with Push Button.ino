@@ -2,7 +2,7 @@
 #define Led 10
 
 void setup() {
-  pinMode(Button,INPUT);
+  pinMode(Buton,INPUT);
   pinMode(Led,OUTPUT);
 }
 
