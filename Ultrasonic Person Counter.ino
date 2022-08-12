@@ -4,6 +4,7 @@
 
 int distance;
 int counter = 0;
+int status;
 
 int measure(){
   int distance;
@@ -21,6 +22,7 @@ int measure(){
 Adafruit_LiquidCrystal lcd(0);
 void setup()
 {
+  status = 0;
   lcd.begin(16, 2);
   pinMode(trig,OUTPUT);
   pinMode(echo,INPUT);
@@ -35,8 +37,12 @@ void loop()
   lcd.setCursor(0, 0);
   lcd.setBacklight(1);
   distance = measure();
-  if(distance<70){
+  if(distance<70 && status == 0){
   	counter++;
+    status = 1;
+  }
+  else if (distance >70){
+  	status = 0;
   }
   lcd.print("Person number");
   lcd.setCursor(0,1);
