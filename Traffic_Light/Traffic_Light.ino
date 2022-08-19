@@ -1,37 +1,140 @@
-#define red 11 
-#define green 10
-#define blue 9
-#define pot_r A0
-#define pot_g A1 
-#define pot_b A2 
+#define a 2
+#define b 3
+#define c 4
+#define d 5
+#define e 6
+#define f 7
+#define g 8
+#define dp 9
+#define red 10
+#define yellow 11
+#define green 12
 
-int red_value; 
-int green_value; 
-int blue_value; 
-
-void read_value() { 
-  red_value = analogRead(pot_r); 
-  green_value = analogRead(pot_g); 
-  blue_value = analogRead(pot_b);
-
-  red_value = map(red_value, 0, 1023, 0, 255);
-  green_value = map(green_value, 0, 1023, 0, 255);
-  blue_value = map(blue_value, 0, 1023, 0, 255);
+void counter(int n){
+  if(n == 0){
+   digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);
+    digitalWrite(e,LOW);
+    digitalWrite(f,LOW);
+    digitalWrite(g,HIGH);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 1){
+    digitalWrite(a,HIGH);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,HIGH);
+    digitalWrite(e,HIGH);
+    digitalWrite(f,HIGH);
+    digitalWrite(g,HIGH);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 2){
+    digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(c,HIGH);
+    digitalWrite(d,LOW);
+    digitalWrite(e,LOW);
+    digitalWrite(f,HIGH);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 3){
+    digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);
+    digitalWrite(e,HIGH);
+    digitalWrite(f,HIGH);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 4){
+    digitalWrite(a,HIGH);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,HIGH);
+    digitalWrite(e,HIGH);
+    digitalWrite(f,LOW);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 5){
+    digitalWrite(a,LOW);
+    digitalWrite(b,HIGH);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);
+    digitalWrite(e,HIGH);
+    digitalWrite(f,LOW);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 6){
+    digitalWrite(a,LOW);
+    digitalWrite(b,HIGH);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);
+    digitalWrite(e,LOW);
+    digitalWrite(f,LOW);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 7){
+    digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,HIGH);
+    digitalWrite(e,HIGH);
+    digitalWrite(f,HIGH);
+    digitalWrite(g,HIGH);
+  }
+  else if(n == 8){
+    digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);
+    digitalWrite(e,LOW);
+    digitalWrite(f,LOW);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
+  else if(n == 9){
+    digitalWrite(a,LOW);
+    digitalWrite(b,LOW);
+    digitalWrite(c,LOW);
+    digitalWrite(d,LOW);
+    digitalWrite(e,HIGH);
+    digitalWrite(f,LOW);
+    digitalWrite(g,LOW);
+    digitalWrite(dp,HIGH);
+  }
 }
 
-void print_value() {
-  analogWrite(red, red_value); 
-  analogWrite(green, green_value); 
-  analogWrite(blue, blue_value); 
+void countdown(int n){
+  for(int i = n; i>-1; i--){
+    counter(i);
+    delay(1000);
+  }
+  delay(100);
 }
 
-void setup() {
-  pinMode(red, OUTPUT);
-  pinMode(green, OUTPUT);
-  pinMode(blue, OUTPUT);
+void setup(){
+  for(int i = 2; i<13; i++){
+    pinMode(i, OUTPUT);
+  }
 }
 
-void loop() {
-  read_value();
-  print_value();
+void loop()
+{
+  digitalWrite(green,HIGH);
+  countdown(9);
+  digitalWrite(green,LOW);
+  digitalWrite(yellow,HIGH);
+  countdown(2);
+  digitalWrite(yellow,LOW);
+  digitalWrite(red,HIGH);
+  countdown(9);
+  digitalWrite(red,LOW);
 }
