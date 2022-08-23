@@ -1,5 +1,5 @@
-int leds[] = {2,3,4,5,6,7};
 #define pot A0
+int leds[] = {2,3,4,5,6,7};
 
 void setup() {
   for(int i=0; i<6; i++){
