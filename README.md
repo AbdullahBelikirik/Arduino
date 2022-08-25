@@ -1,1 +1,1 @@
-# bu depo içerisinde güncellemeler yapılıyor.
+# This repo contains my Arduino projects and exercises
